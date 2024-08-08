@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 #define SIZE 100
 #define INF 0x3f3f3f3f
-
-using namespace std;
 
 vector<int> dijkstra(vector<vector<pair<int, int>>> &g, int start){
     set<pair<int, int>> cloud;

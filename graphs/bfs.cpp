@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 #define SIZE 100
-
-using namespace std;
 
 void bfs(vector<vector<int>> &g, vector<int> &visited, queue<int> &adjacents, int v){
     int next;

@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 #define SIZE 100
-
-using namespace std;
 
 void dfs(vector<vector<int>> &g, vector<int> &visited, int v){
     visited[v] = true;
