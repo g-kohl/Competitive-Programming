@@ -1,0 +1,19 @@
+INSERTION:
+- insertion
+- shell
+
+SWAPS:
+- bubble
+- comb
+- shake
+- quick
+
+SELECTION:
+- selection
+- heap
+
+MERGING:
+- merge
+
+SEARCH:
+- binary search

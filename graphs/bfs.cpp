@@ -3,28 +3,29 @@ using namespace std;
 
 #define SIZE 100
 
-void bfs(vector<vector<int>> &g, vector<int> &visited, queue<int> &adjacents, int v){
+void bfs(vector<vector<int>> &g, vector<int> &visited, int v){
+    queue<int> q;
     int next;
 
     visited[v] = true;
+    q.push(v);
 
-    for(int it : g[v]){
-        if(!visited[it])
-            adjacents.push(it);
-    }
+    while(!q.empty()){
+        next = q.front();
+        q.pop();
 
-    if(!adjacents.empty()){
-        next = adjacents.front();
-        adjacents.pop();
-
-        bfs(g, visited, adjacents, next);
+        for(int it : g[next]){
+            if(!visited[it]){
+                visited[it] = true;
+                q.push(it);
+            }
+        }
     }
 }
 
 int main(){
     vector<vector<int>> g(SIZE+1);
     vector<int> visited(SIZE+1);
-    queue<int> adjacents;
     int v, e, v1, v2, start=0;
 
     cin >> v >> e;
@@ -36,7 +37,7 @@ int main(){
         // g[v2].push_back(v1);
     }
 
-    bfs(g, visited, adjacents, start);
+    bfs(g, visited, start);
 
     cout << endl << "Nodes visited starting by " << start << ": ";
 

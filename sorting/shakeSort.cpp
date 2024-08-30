@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 #define SIZE 100
-
-using namespace std;
 
 void printVector(vector<int> v){
     cout << endl;
