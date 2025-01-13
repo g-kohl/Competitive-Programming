@@ -1,0 +1,22 @@
+1 - todos
+2 - todo número que não tenha dígito entre 5 e 9
+3 - todo número que não tenha dígito entre 4 e 9
+4 - todo número que não tenha dígito entre 3 e 9
+5 a 9 - todo número que não tenha dígito entre 2 e 9
+acima de 10 - nenhum
+
+
+4	+ 20
+24	+ 100
+124	+ 500
+624
+
+4+20+100+500
+4*5^0 + 4*5^1 + 4*5^2 + ...
+
+========================
+
+3	+ 12
+15	+ 48
+63	+ 192
+255
