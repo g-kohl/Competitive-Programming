@@ -45,6 +45,7 @@ int main(){
     vector<int> distances = dijkstra(g, start);
 
     cout << "Vertex and it's distance from the start:" << endl;
+    
     for(int i=0; i<SIZE; i++)
         if(distances[i] != INF)
             cout << i << ": " << distances[i] << endl;

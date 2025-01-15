@@ -16,11 +16,9 @@ void selectionSort(vector<int> &v){
     for(int i=0; i<SIZE; i++){
         min = i;
 
-        for(int j=i; j<=SIZE; j++){
-            if(v[j] < v[min]){
+        for(int j=i; j<=SIZE; j++)
+            if(v[j] < v[min])
                 min = j;
-            }
-        }
 
         if(min != i)
             swap(v[i], v[min]);
