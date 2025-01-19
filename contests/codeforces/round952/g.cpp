@@ -3,75 +3,63 @@ using namespace std;
 
 #define M 1000000007
 
-long long powerMod(long long b, long long e){
-    long long power = 1;
+int computeResult(long long l, long long r){
+    return ((((r % M) - (l % M)) % M) + M) % M;
+}
 
-    b = b % M;
-
-    if(b == 0)
+long long pow_modulo(long long a, long long b){
+    long long res = 1;
+ 
+    a = a % M;
+  
+    if(a == 0)
         return 0;
+ 
+    while(b > 0){ 
+        if (b & 1) 
+            res = (res * a) % M; 
+ 
+        b = b >> 1;
+        a = (a * a) % M; 
+    } 
 
-    while(e > 0){
-        if(e % 2 == 1)
-            power = (power*b) % M;
+    return res; 
+}
 
-        e /= 2;
-        b = (b*b) % M;
+void solve(){
+    long long l, r, k, total;
+
+    cin >> l >> r >> k;
+
+    if(k == 1){
+        cout << computeResult(pow_modulo(10, l), pow_modulo(10, r)) << "\n";
     }
-
-    return power;
+    else if(k == 2){
+        cout << computeResult(pow_modulo(5, l), pow_modulo(5, r)) << "\n";
+    }
+    else if(k == 3){
+        cout << computeResult(pow_modulo(4, l), pow_modulo(4, r)) << "\n";
+    }
+    else if(k == 4){
+        cout << computeResult(pow_modulo(3, l), pow_modulo(3, r)) << "\n";
+    }
+    else if(k >= 5 && k <= 9){
+        cout << computeResult(pow_modulo(2, l), pow_modulo(2, r)) << "\n";
+    }
+    else{
+        cout << 0 << "\n";
+    }
 }
 
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
 
-    long long t, l, r, n, k, total, expo;
-    bool zero;
+    int t=1;
+    cin >> t;
 
-    for(cin>>t; t>0; t--){
-        zero = false;
-
-        cin >> l >> r >> k;
-
-        switch(k){
-            case 1:
-                expo = 10;
-                break;
-
-            case 2:
-                expo = 5;
-                break;
-            
-            case 3:
-                expo = 4;
-                break;
-
-            case 4:
-                expo = 3;
-                break;
-            
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-                expo = 2;
-                break;
-
-            default:
-                total = 0;
-                zero = true;
-        }
-
-        if(!zero){
-            l = powerMod(expo, l);
-            r = powerMod(expo, r);
-
-            total = ((((r%M) - (l%M)) % M) + M) % M;
-        }
-
-        cout << total << "\n";
+    while(t--){
+        solve();
     }
 
     return 0;
