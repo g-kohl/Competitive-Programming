@@ -15,8 +15,7 @@ int mult_modulo(int a, int b){
     return ((a % M) * (b % M)) % M;
 }
 
-int pow_modulo(int a, int b)
-{
+int pow_modulo(int a, int b){
     int res = 1;
  
     a = a % M;
