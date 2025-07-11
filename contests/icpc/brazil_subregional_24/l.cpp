@@ -1,23 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int bits[32];
-
-void countBits(int number){
-    
-}
-
 void solve(){
-    int n, number;
+    int n, number, bits[32] = {0};
 
     cin >> n;
 
     for(int i=0; i<n; i++){
         cin >> number;
 
-        countBits(number);
-    } 
+        for(int e=0; e<32; e++){
+            if(number / pow(2,31-e) >= 1){
+                bits[e]++;
+                number -= pow(2,31-e);
+            }
+        }
+    }
 
+    for(int i=0; i<n; i++){
+        number = 0;
+
+        for(int e=0; e<32; e++){
+            if(bits[e] > 0){
+                number += pow(2,31-e);
+                bits[e]--;
+            }
+        }
+
+        cout << number << " ";
+    }
 }
 
 int main(){
