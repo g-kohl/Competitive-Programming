@@ -1,6 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define M 1000000007
+
+int pow_modulo(int a, int b){
+    int res = 1;
+ 
+    a = a % M;
+  
+    if(a == 0)
+        return 0;
+ 
+    while(b > 0){ 
+        if (b & 1) 
+            res = (res * a) % M; 
+ 
+        b = b >> 1;
+        a = (a * a) % M; 
+    } 
+
+    return res; 
+}
+
 void solve(){
     int n, q, v, x;
     vector<vector<int>> factors(1000001);
@@ -39,7 +60,7 @@ void solve(){
             }
         }
 
-        cout << pow(2,n-quant) << "\n";
+        cout << pow_modulo(2,n-quant) << "\n";
     }
 }
 
