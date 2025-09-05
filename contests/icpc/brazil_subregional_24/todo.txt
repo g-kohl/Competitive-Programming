@@ -1,0 +1,2 @@
+https://codeforces.com/gym/105327
+problems: B, C, D, G, I, J
