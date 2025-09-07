@@ -2,31 +2,26 @@
 using namespace std;
 
 void solve(){
-    int n, count, total=0;
-    vector<int> indexes;
+    int n, b, count_even=1, count_odd=0, total=0;
+    bool parity;
 
     cin >> n;
 
-    int b[n];
-
     for(int i=0; i<n; i++){
-        cin >> b[i];
+        cin >> b;
 
-        if(b[i] == 1)
-            indexes.push_back(i);
-    }
+        if(i == 0)
+            parity = (b == 0) ? true : false;
+        else
+            parity = (b == 0) ? parity : !parity;
 
-    for(int i=0; i<n; i++){
-        count = 0;
-
-        for(int j=i; j<n; j++){
-            if(b[j] == 1){
-                count++;
-            }
-
-            if(count % 2 == 1){
-                total++;
-            }
+        if(parity){
+            count_even++;
+            total += count_odd;
+        }
+        else{
+            count_odd++;
+            total+= count_even;
         }
     }
 
